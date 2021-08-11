@@ -2340,11 +2340,11 @@ var PartialEvaluator = (function PartialEvaluatorClosure() {
       var encoding = properties.defaultEncoding;
       for (var charCode = 0; charCode < 256; charCode++) {
         if (charCode in differences &&
-            widthsByGlyphName[differences[charCode]]) {
+            widthsByGlyphName.indexOf(differences[charCode]) >= 0) {
           widths[charCode] = widthsByGlyphName[differences[charCode]];
           continue;
         }
-        if (charCode in encoding && widthsByGlyphName[encoding[charCode]]) {
+        if (charCode in encoding && widthsByGlyphName.indexOf(encoding[charCode]) >= 0) {
           widths[charCode] = widthsByGlyphName[encoding[charCode]];
           continue;
         }
